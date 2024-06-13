@@ -3,11 +3,12 @@
 
 pkgname=base-devel
 pkgver=1
-pkgrel=2
+pkgrel=3
 pkgdesc='Basic tools to build Manjaro Linux packages'
 url='https://www.manjaro.org'
 arch=('any')
 license=('GPL')
+options=('!debug')
 depends=(
   archlinux-keyring
   autoconf
@@ -39,3 +40,4 @@ depends=(
 )
 
 # vim: ts=2 sw=2 et:
+
