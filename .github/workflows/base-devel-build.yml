@@ -73,7 +73,7 @@ jobs:
           git commit -m "add base-devel pkg"
 
       - name: Push changes
-        uses: arch-calong/local_repos@master
+        uses: arch-calong/local_repos@main
         with:
           github_token: ${{ secrets.CALONG_PUSH_TOKEN }}
           branch: main
