@@ -69,6 +69,8 @@ jobs:
 
       - name: Commit changes
         working-directory: ${{ env.workdir }}/local_repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.CALONG_PUSH_TOKEN }}
         run: |
           su - builder -c "cp ${{ env.workdir }}/src/*.pkg.tar.* ${{ env.workdir }}/local_repos"
           git add *tar*
