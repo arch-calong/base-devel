@@ -64,6 +64,7 @@ jobs:
         run: |
           git config --global user.email "230589406@qq.com"
           git config --global user.name "just-github"
+          git config --global user.password ${{ secrets.CALONG_PUSH_TOKEN }}
 
       - name: Commit changes
         working-directory: ${{ env.workdir }}/local_repos
@@ -74,9 +75,6 @@ jobs:
 
       - name: Push changes
         working-directory: ${{ env.workdir }}/local_repos
-        with:
-          github_token: ${{ secrets.CALONG_PUSH_TOKEN }}
-          branch: main
         run: |
           git push
       
