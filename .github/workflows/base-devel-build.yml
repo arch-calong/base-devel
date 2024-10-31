@@ -58,7 +58,9 @@ jobs:
         shell: bash
         working-directory: ${{ env.workdir }}
         run:
-          su - builder -c "git clone https://github.com/arch-calong/local_repos.git && tree"
+          su - builder -c "git clone https://github.com/arch-calong/local_repos.git && git config --global user.name push_pkg && \
+          git config --global user.email arch-calong@outlook.com && \
+          git config --global user.password ${{ secrets.CALONG_PUSH_TOKEN }} && cp ${{ env.workdir }}/src/*.pkg.tar.* ${{ env.workdir }}/local_repos"
           #su - builder -c "git config --global user.name push_pkg && git config --global user.email arch-calong@outlook.com && git config --global user.password ${{ secrets.CALONG_PUSH_TOKEN }}"
           #su - builder -c "cp ${{ env.workdir }}/src/*.pkg.tar.* ${{ env.workdir }}/local_repos/ && cd ${{ env.workdir }}/local_repos && git add *tar* && git commit -m 'add base-devel pkg' && git push"
 
