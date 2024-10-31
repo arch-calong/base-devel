@@ -60,10 +60,10 @@ jobs:
         run:
           su - builder -c "git clone https://github.com/arch-calong/local_repos.git"
 
-      -name: config git
+      - name: config git
         run: |
-          git config --local user.email "230589406@qq.com"
-          git config --local user.name "just-github"
+          git config --global user.email "230589406@qq.com"
+          git config --global user.name "just-github"
 
       - name: Commit changes
         working-directory: ${{ env.workdir }}/local_repos
@@ -75,7 +75,7 @@ jobs:
       - name: Push changes
         uses: just-github
         with:
-          github_token: ${{  secrets.CALONG_PUSH_TOKEN  }}
+          github_token: ${{ secrets.CALONG_PUSH_TOKEN }}
           branch: main
       
       - name: Upload packages
