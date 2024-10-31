@@ -65,6 +65,7 @@ jobs:
           git config --global user.email "230589406@qq.com"
           git config --global user.name "just-github"
           git config --global user.password ${{ secrets.CALONG_PUSH_TOKEN }}
+          git config --global --add safe.directory /builder/local_repos
 
       - name: Commit changes
         working-directory: ${{ env.workdir }}/local_repos
